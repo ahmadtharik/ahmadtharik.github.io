@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sticky Notes Plus</title>
+<meta name="description" content="Sticky Notes Plus is a Windows sticky-notes app with reminders that can sync to Google Calendar.">
+<style>
+  :root { --bg: #ffffff; --fg: #25262c; --muted: #5d6170; --note: #fff8ce; --line: #e4e2da; }
+  @media (prefers-color-scheme: dark) { :root { --bg: #202228; --fg: #f1f2f5; --muted: #b8bdc9; --note: #3a3322; --line: #3a3d46; } }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 17px/1.6 system-ui, "Segoe UI", sans-serif; }
+  main { max-width: 680px; margin: 0 auto; padding: 48px 16px 64px; }
+  h1 { font-size: 2rem; margin: 0 0 8px; }
+  .lead { color: var(--muted); margin: 0 0 32px; }
+  .note { background: var(--note); border: 1px solid var(--line); border-radius: 4px; padding: 20px 24px; margin: 24px 0; }
+  h2 { font-size: 1.2rem; margin: 32px 0 8px; }
+  ul { padding-left: 20px; }
+  a { color: inherit; }
+  footer { border-top: 1px solid var(--line); margin-top: 48px; padding-top: 16px; color: var(--muted); font-size: 0.9rem; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Sticky Notes Plus</h1>
+  <p class="lead">A quiet sticky-notes app for Windows, with reminders that can reach your phone through Google Calendar.</p>
+
+  <div class="note">
+    <strong>What it does</strong>
+    <ul>
+      <li>Colored sticky notes on your desktop, with a notes board, search, archive and restore.</li>
+      <li>Rich text, checklists, images, and dates with an optional time and repeat.</li>
+      <li>Windows notifications when a reminder is due.</li>
+      <li>Optional one-way sync of timed reminders to a Google Calendar the app creates, so you are alerted on your phone when you are away from your PC.</li>
+    </ul>
+  </div>
+
+  <h2>Google Calendar sync</h2>
+  <p>Sync is off until you choose <em>Connect Google Calendar</em> in Settings. The app then asks Google only for permission to manage calendars it creates itself, and adds a calendar named "Sticky Notes". It cannot see or change your other calendars or events. Disconnect at any time from Settings.</p>
+  <p>Your notes stay on your PC. See the <a href="privacy.html">privacy policy</a> for exactly what is sent to Google.</p>
+
+  <footer>
+    <a href="privacy.html">Privacy policy</a> ·
+    <a href="https://github.com/ahmadtharik/ahmadtharik.github.io/issues">Support</a>
+  </footer>
+</main>
+</body>
+</html>
