@@ -4,43 +4,111 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sticky Notes Plus</title>
-<meta name="description" content="Sticky Notes Plus is a Windows sticky-notes app with reminders that can sync to Google Calendar.">
+<meta name="description" content="Sticky Notes Plus is a free, open-source sticky-notes app for Windows with reminders that can sync to Google Calendar.">
+<meta property="og:title" content="Sticky Notes Plus">
+<meta property="og:description" content="Free sticky notes for Windows, with reminders that reach your phone through Google Calendar.">
+<meta property="og:image" content="https://ahmadtharik.github.io/sticky-notes-plus/images/hero-light.png">
 <style>
-  :root { --bg: #ffffff; --fg: #25262c; --muted: #5d6170; --note: #fff8ce; --line: #e4e2da; }
-  @media (prefers-color-scheme: dark) { :root { --bg: #202228; --fg: #f1f2f5; --muted: #b8bdc9; --note: #3a3322; --line: #3a3d46; } }
+  :root {
+    --bg: #ffffff; --fg: #25262c; --muted: #5d6170; --line: #e4e2da;
+    --note: #fff8ce; --card: #f6f6f8; --accent: #005fb8; --accent-fg: #ffffff;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1c1d22; --fg: #f1f2f5; --muted: #b8bdc9; --line: #3a3d46;
+      --note: #3a3322; --card: #26282f; --accent: #60cdff; --accent-fg: #00243a;
+    }
+  }
+  * { box-sizing: border-box; }
   body { margin: 0; background: var(--bg); color: var(--fg); font: 17px/1.6 system-ui, "Segoe UI", sans-serif; }
-  main { max-width: 680px; margin: 0 auto; padding: 48px 16px 64px; }
-  h1 { font-size: 2rem; margin: 0 0 8px; }
-  .lead { color: var(--muted); margin: 0 0 32px; }
-  .note { background: var(--note); border: 1px solid var(--line); border-radius: 4px; padding: 20px 24px; margin: 24px 0; }
-  h2 { font-size: 1.2rem; margin: 32px 0 8px; }
-  ul { padding-left: 20px; }
+  main { max-width: 960px; margin: 0 auto; padding: 56px 16px 64px; }
+  .narrow { max-width: 680px; }
+  h1 { font-size: clamp(2rem, 5vw, 2.8rem); line-height: 1.15; margin: 0 0 12px; }
+  h2 { font-size: 1.35rem; margin: 0 0 12px; }
+  h3 { font-size: 1rem; margin: 0 0 4px; }
+  p { margin: 0 0 12px; }
   a { color: inherit; }
-  footer { border-top: 1px solid var(--line); margin-top: 48px; padding-top: 16px; color: var(--muted); font-size: 0.9rem; }
+  .lead { color: var(--muted); font-size: 1.15rem; margin: 0 0 24px; max-width: 600px; }
+  .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; }
+  .button { display: inline-block; background: var(--accent); color: var(--accent-fg); text-decoration: none; font-weight: 600; padding: 12px 22px; border-radius: 6px; }
+  .button:hover { filter: brightness(1.08); }
+  .small { color: var(--muted); font-size: 0.9rem; }
+  .shot { display: block; width: 100%; height: auto; border-radius: 12px; margin: 40px 0 56px; }
+  section { margin: 0 0 56px; }
+  .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+  .feature { background: var(--card); border-radius: 10px; padding: 18px 20px; }
+  .feature p { color: var(--muted); font-size: 0.95rem; margin: 0; }
+  .split { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 40px; align-items: start; }
+  .split img { width: 100%; height: auto; border-radius: 10px; border: 1px solid var(--line); }
+  .note { background: var(--note); border: 1px solid var(--line); border-radius: 4px; padding: 18px 22px; }
+  ol { padding-left: 22px; margin: 0; }
+  li { margin: 0 0 8px; }
+  footer { border-top: 1px solid var(--line); margin-top: 24px; padding-top: 16px; color: var(--muted); font-size: 0.9rem; }
+  @media (max-width: 720px) { .split { grid-template-columns: 1fr; } .split img { max-width: 360px; } }
 </style>
 </head>
 <body>
 <main>
-  <h1>Sticky Notes Plus</h1>
-  <p class="lead">A quiet sticky-notes app for Windows, with reminders that can reach your phone through Google Calendar.</p>
+  <header>
+    <h1>Sticky Notes Plus</h1>
+    <p class="lead">Quick sticky notes for Windows, with reminders that reach your phone through Google Calendar.</p>
+    <div class="actions">
+      <a class="button" href="https://github.com/ahmadtharik/sticky-notes-plus/releases/latest/download/StickyNotesPlus.msi">Download for Windows</a>
+      <span class="small">Free and open source · <a href="https://github.com/ahmadtharik/sticky-notes-plus/releases/latest">Release notes</a></span>
+    </div>
+  </header>
 
-  <div class="note">
-    <strong>What it does</strong>
-    <ul>
-      <li>Colored sticky notes on your desktop, with a notes board, search, archive and restore.</li>
-      <li>Rich text, checklists, images, and dates with an optional time and repeat.</li>
-      <li>Windows notifications when a reminder is due.</li>
-      <li>Optional one-way sync of timed reminders to a Google Calendar the app creates, so you are alerted on your phone when you are away from your PC.</li>
-    </ul>
-  </div>
+  <picture>
+    <source srcset="images/hero-dark.png" media="(prefers-color-scheme: dark)">
+    <img class="shot" src="images/hero-light.png" width="1200" height="760" alt="The Sticky Notes Plus board beside a grocery checklist note and a dentist note with a reminder for Nov 12 at 09:30.">
+  </picture>
 
-  <h2>Google Calendar sync</h2>
-  <p>Sync is off until you choose <em>Connect Google Calendar</em> in Settings. The app then asks Google only for permission to manage calendars it creates itself, and adds a calendar named "Sticky Notes". It cannot see or change your other calendars or events. Disconnect at any time from Settings.</p>
-  <p>Your notes stay on your PC. See the <a href="privacy.html">privacy policy</a> for exactly what is sent to Google.</p>
+  <section>
+    <h2>What it does</h2>
+    <div class="features">
+      <div class="feature"><h3>Notes on your desktop</h3><p>Colored notes that stay where you put them, plus a board with search, archive and restore.</p></div>
+      <div class="feature"><h3>Checklists and formatting</h3><p>Checkboxes, bullet lists, bold, italic, underline, strikethrough and images.</p></div>
+      <div class="feature"><h3>Reminders</h3><p>Add a date, an optional time and a repeat. Windows notifies you when it's due, with snooze.</p></div>
+      <div class="feature"><h3>On your phone</h3><p>Optionally sync timed reminders to a Google Calendar the app creates, so alerts reach you away from your PC.</p></div>
+      <div class="feature"><h3>Fits in</h3><p>Dark mode, a global new-note shortcut and Start with Windows.</p></div>
+      <div class="feature"><h3>Yours to keep</h3><p>Notes stay on your PC. Export them all to a file and import them back at any time.</p></div>
+    </div>
+  </section>
+
+  <section class="split">
+    <div>
+      <h2>Google Calendar sync</h2>
+      <p>Sync is off until you choose <em>Connect Google Calendar</em> in Settings. The app then asks Google only for permission to manage calendars it creates itself, and adds a calendar named "Sticky Notes". It cannot see or change your other calendars or events. Disconnect at any time from Settings.</p>
+      <p>Your notes stay on your PC. See the <a href="privacy.html">privacy policy</a> for exactly what is sent to Google.</p>
+      <h2 style="margin-top: 32px">Updates</h2>
+      <p>Open <em>Settings → Updates</em> to check for a new version and install it in one click. The app never interrupts you with pop-ups.</p>
+    </div>
+    <picture>
+      <source srcset="images/settings-dark.png" media="(prefers-color-scheme: dark)">
+      <img src="images/settings-light.png" width="400" height="572" alt="The Settings page with Appearance, Startup, Keyboard shortcut, Google Calendar and Updates sections.">
+    </picture>
+  </section>
+
+  <section class="narrow">
+    <h2>Installing</h2>
+    <div class="note">
+      <ol>
+        <li>Download <code>StickyNotesPlus.msi</code> and open it.</li>
+        <li>The installer isn't code-signed, so Windows SmartScreen may warn you. Choose <em>More info</em>, then <em>Run anyway</em>.</li>
+        <li>When you connect Google Calendar, Google may say it hasn't verified the app. Choose <em>Advanced</em>, then the link to continue to Sticky Notes Plus. You can review exactly what the app can access on the next screen.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="narrow">
+    <h2>Open source</h2>
+    <p>Sticky Notes Plus is written in Rust and released under the MIT licence. The source, issue tracker and every release are on <a href="https://github.com/ahmadtharik/sticky-notes-plus">GitHub</a>.</p>
+  </section>
 
   <footer>
     <a href="privacy.html">Privacy policy</a> ·
-    <a href="https://github.com/ahmadtharik/ahmadtharik.github.io/issues">Support</a>
+    <a href="https://github.com/ahmadtharik/sticky-notes-plus">Source code</a> ·
+    <a href="https://github.com/ahmadtharik/sticky-notes-plus/issues">Support</a>
   </footer>
 </main>
 </body>
